@@ -1,21 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiestas <cfiestas@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 13:38:13 by cfiestas          #+#    #+#             */
-/*   Updated: 2023/03/09 13:39:22 by cfiestas         ###   ########.fr       */
+/*   Created: 2023/03/12 18:25:37 by cfiestas          #+#    #+#             */
+/*   Updated: 2023/03/12 18:25:39 by cfiestas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <unistd.h>
+#include "./libft.h"
 
-# include "./libft/libft.h"
-# include <stdarg.h>
+int	ft_putnbr(int nb)
+{
+	char	c;
+	unsigned int	i;
 
-int	ft_printf(const char *str, ...);
-
-#endif
+	if (nb == -2147483648)
+	{
+		i += ft_putchar('-');
+		i += ft_putchar('2');
+		i += ft_putnbr(147483648);
+	}
+	if (nb < 0)
+	{
+		i += ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb < 10)
+	{
+		c = nb + '0';
+		i += ft_putchar(c);
+	}
+	else
+	{
+		i += ft_putnbr(nb / 10);
+		i += ft_putnbr(nb % 10);
+	}
+	return (i);
+}
