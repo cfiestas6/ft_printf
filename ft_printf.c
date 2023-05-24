@@ -11,12 +11,30 @@
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
+#include "libft/libft.h"
+#include <stdarg.h>
+#include <stddef.h>
+
+int	ft_parse(va_list args, char c)
+{
+	if (c == 'c')
+		return (ft_putchar(va_arg(args, int)));
+	else if (c == 's')
+		return (ft_putstr(va_arg(args, char *)));
+	else 
+		return (0);
+/*	else if (c == 'p')
+		return (ft_putstr("0x") + ft_putnbr_base(va_arg(args, unsigned long int)));
+	else if (c == 'd')
+		return (ft_putnbr(va_arg(args, int)));
+*/
+}
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int	count;
-	int	i;
+	size_t	i;
 
 	count = 0;
 	i = 0;
@@ -27,16 +45,20 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
+			if (ft_strlen(str) > i + 1)
+				count += ft_parse(args, str[i + 1]);
 			i++;
-			count += ft_printf_aux(str, &i, args);
 		}
 		else
-		{
-			ft_putchar(str[i]);
-			count++;
-		}
+			count += write(1, &str[i], 1);
 		i++;
 	}
 	va_end(args);
 	return (count);
+}
+
+int main(void)
+{
+	ft_printf("hola");
+	return (0);
 }

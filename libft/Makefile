@@ -4,9 +4,10 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-
 MY_SOURCES = ft_isalpha.c \
 			 			ft_isdigit.c  \
+						ft_putchar.c \
+						ft_putstr.c \
 						ft_isalnum.c \
 						ft_bzero.c \
 						ft_memset.c \

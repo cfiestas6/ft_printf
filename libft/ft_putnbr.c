@@ -13,31 +13,38 @@
 #include <unistd.h>
 #include "./libft.h"
 
-int	ft_putnbr(int nb)
+int	ft_putnbr(int nbr, char *base, char c)
 {
-	char	c;
-	unsigned int	i;
+	int	count;
+	unsigned int j;
+	unsigned int len;
 
-	if (nb == -2147483648)
+	count = 0;
+	len = ft_strlen(base);
+	if (nbr < 0)
 	{
-		i += ft_putchar('-');
-		i += ft_putchar('2');
-		i += ft_putnbr(147483648);
+		if (c != 'u')
+			count += ft_putchar('-');
+		nbr *= -1;
 	}
-	if (nb < 0)
-	{
-		i += ft_putchar('-');
-		nb *= -1;
-	}
-	if (nb < 10)
-	{
-		c = nb + '0';
-		i += ft_putchar(c);
-	}
-	else
-	{
-		i += ft_putnbr(nb / 10);
-		i += ft_putnbr(nb % 10);
-	}
-	return (i);
+	j = nbr;
+	if (j >= len)
+		count += ft_putnbr(j / len, base, c);
+	count += ft_putchar(base[j % len]);
+	return (count);
 }
+
+int ft_putnbr_base(unsigned long int nbr, char *base)
+{
+	int	count;
+	unsigned int	j;
+	unsigned int	len;
+
+	count = 0;
+	len = ft_strlen(base);
+	if (nbr >= len)
+		count += ft_putnbr_base(nbr, base);
+	count += ft_putchar(base[nbr % len]);
+	return (count);
+}
+
