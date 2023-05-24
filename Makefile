@@ -1,10 +1,10 @@
-NAME = printf.a
+NAME = libftprintf.a
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-MY_SOURCES = ft_printf.c
+MY_SOURCES = ft_printf.c\
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
