@@ -6,7 +6,7 @@
 /*   By: cfiestas <cfiestas@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:36:29 by cfiestas          #+#    #+#             */
-/*   Updated: 2023/03/09 13:36:34 by cfiestas         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:20:00 by cfiestas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ int	ft_parse(va_list args, char c)
 		return (ft_putchar(va_arg(args, int)));
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
-	else 
+	else
 		return (0);
-/*	else if (c == 'p')
+	/*
+	else if (c == 'p')
 		return (ft_putstr("0x") + ft_putnbr_base(va_arg(args, unsigned long int)));
 	else if (c == 'd')
 		return (ft_putnbr(va_arg(args, int)));
-*/
+	*/
 }
 
 int	ft_printf(const char *str, ...)
@@ -59,6 +60,6 @@ int	ft_printf(const char *str, ...)
 
 int main(void)
 {
-	ft_printf("hola");
+	ft_printf("%s", "hola");
 	return (0);
 }
