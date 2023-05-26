@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
-#include "libft/libft.h"
+#include "./libft/libft.h"
 #include <stdarg.h>
 #include <stddef.h>
 
-int	ft_parse(va_list args, char c)
+static int	ft_parse(va_list args, char c)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(args, int)));
