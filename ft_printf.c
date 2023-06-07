@@ -6,7 +6,7 @@
 /*   By: cfiestas <cfiestas@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:36:29 by cfiestas          #+#    #+#             */
-/*   Updated: 2023/05/26 17:20:00 by cfiestas         ###   ########.fr       */
+/*   Updated: 2023/06/07 12:54:09 by cfiestas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-
+/*
 int main(void)
 {
 	int i = 0;
@@ -63,4 +63,4 @@ int main(void)
 
 	ft_printf("%p", p);
 	return (0);
-}
+}*/

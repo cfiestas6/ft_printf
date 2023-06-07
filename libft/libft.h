@@ -6,7 +6,7 @@
 /*   By: cfiestas <cfiestas@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:27 by cfiestas          #+#    #+#             */
-/*   Updated: 2023/02/10 17:05:59 by cfiestas         ###   ########.fr       */
+/*   Updated: 2023/06/07 12:59:22 by cfiestas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int		ft_atoi(const char *str);
 char	*ft_strdup(const char *s1);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-int	ft_putstr(const char *str);
-int	ft_putchar(const char c);
-int	ft_putnbr(int nbr, char *base, char c);
-int ft_putnbr_base(unsigned long int nbr, char *base);
-//int	ft_putunbr(unsigned int n);
+int		ft_putstr(const char *str);
+int		ft_putchar(const char c);
+int		ft_putnbr(int nbr, char *base, char c);
+int		ft_putnbr_base(unsigned long int nbr, char *base);
+int		ft_pointernbr(unsigned long int nbr, char *base);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
