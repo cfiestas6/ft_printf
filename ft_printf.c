@@ -55,7 +55,6 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-/*
 int main(void)
 {
 	int i = 0;
@@ -63,4 +62,4 @@ int main(void)
 
 	ft_printf("%p", p);
 	return (0);
-}*/
+}
