@@ -43,7 +43,7 @@ int		ft_putstr(const char *str);
 int		ft_putchar(const char c);
 int		ft_putnbr(int nbr, char *base, char c);
 int		ft_putnbr_base(unsigned long int nbr, char *base);
-int		ft_pointernbr(unsigned long int nbr, char *base);
+int		ft_pointnbr(unsigned long int nbr, char *base);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
