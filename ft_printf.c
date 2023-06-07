@@ -21,14 +21,12 @@ static int	ft_parse(va_list args, char c)
 		return (ft_putchar(va_arg(args, int)));
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
+	else if (c == 'p')
+		return (ft_putstr("0x") + ft_putnbr_base(va_arg(args, unsigned long int), "0123456789abcdef"));
+	else if (c == 'd')
+		return (ft_putnbr(va_arg(args, int), "0123456789", c));
 	else
 		return (0);
-	/*
-	else if (c == 'p')
-		return (ft_putstr("0x") + ft_putnbr_base(va_arg(args, unsigned long int)));
-	else if (c == 'd')
-		return (ft_putnbr(va_arg(args, int)));
-	*/
 }
 
 int	ft_printf(const char *str, ...)
@@ -48,7 +46,7 @@ int	ft_printf(const char *str, ...)
 		{
 			if (ft_strlen(str) > i + 1)
 				count += ft_parse(args, str[i + 1]);
-			i++;
+		i++;
 		}
 		else
 			count += write(1, &str[i], 1);
@@ -60,6 +58,9 @@ int	ft_printf(const char *str, ...)
 
 int main(void)
 {
-	ft_printf("%s", "hola");
+	int i = 0;
+	int *p = &i;
+
+	ft_printf("%p", p);
 	return (0);
 }
