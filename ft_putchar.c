@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiestas <cfiestas@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 12:17:26 by cfiestas          #+#    #+#             */
-/*   Updated: 2023/01/10 12:35:57 by cfiestas         ###   ########.fr       */
+/*   Created: 2023/03/13 15:23:40 by cfiestas          #+#    #+#             */
+/*   Updated: 2023/06/12 16:13:45 by cfiestas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "./ft_printf.h"
+
+int	ft_putchar(const char c)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1);
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }
