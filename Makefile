@@ -12,11 +12,13 @@ MY_SOURCES = ft_printf.c\
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
+all: $(NAME)
 
 $(NAME): $(MY_OBJECTS) ft_printf.h
-	ar -rsc  $(NAME) $(MY OBJECTS)
+	ar -rcs $(NAME) $(MY OBJECTS)
 
-all: $(NAME)
+%.o : %.c
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	@rm -f $(MY_OBJECTS)

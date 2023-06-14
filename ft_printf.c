@@ -24,6 +24,8 @@ static int	ft_parse(va_list args, char c)
 		return (ft_putstr("0x") + ft_putnbr_base(va_arg(args, unsigned long int), "0123456789abcdef"));
 	else if (c == 'd')
 		return (ft_putnbr(va_arg(args, int), "0123456789", c));
+	else if (c == 'i')
+		return (ft_putnbr(va_arg(args, int), "0123456789", c));
 	else
 		return (0);
 }
