@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./ft_printf.h"
 #include <unistd.h>
-#include "./libft.h"
 
 int	ft_putnbr(int nbr, char *base, char c)
 {

@@ -5,23 +5,22 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 MY_SOURCES = ft_printf.c\
+	     ft_putchar.c\
+	     ft_putnbr.c\
+	     ft_putstr.c\
+	     ft_strlen.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
-LIBFT = libft/libft.a
+
+$(NAME): $(MY_OBJECTS) ft_printf.h
+	ar -rsc  $(NAME) $(MY OBJECTS)
 
 all: $(NAME)
 
-$(NAME): $(MY_OBJECTS)
-	@cd libft ; make
-	@cp ${LIBFT} ${NAME}
-	@ar rsc  $(NAME) $(MY OBJECTS) ${LIBFT}
-
 clean:
-	@cd libft ; make clean
 	@rm -f $(MY_OBJECTS)
 fclean:
-	@cd libft ; make fclean
 	@rm -f $(NAME)
 
 re: fclean all
