@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
-#include <stdarg.h>
-#include <stddef.h>
 
 static int	ft_parse(va_list args, char c)
 {
@@ -21,25 +19,31 @@ static int	ft_parse(va_list args, char c)
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p')
-		return (ft_putstr("0x") + ft_putnbr_base(va_arg(args, unsigned long int), "0123456789abcdef"));
+		return (write(1, "0x", 2) + ft_putnbr_base(va_arg(args, unsigned long int), "0123456789abcdef"));
 	else if (c == 'd')
 		return (ft_putnbr(va_arg(args, int), "0123456789", c));
 	else if (c == 'i')
 		return (ft_putnbr(va_arg(args, int), "0123456789", c));
+	else if (c == 'u')
+		return (ft_pointnbr(va_arg(args, int), "0123456789"));
+	else if (c == 'x')
+		return (ft_pointnbr(va_arg(args, int), "0123456789abcdef"));
+	else if (c == 'X')
+		return (ft_pointnbr(va_arg(args, int), "0123456789ABCDEF"));
+	else if (c == '%')
+		return (ft_putchar('%'));
 	else
-		return (0);
+		return (ft_putchar(c));
 }
 
-int	ft_printf(const char *str, ...)
+int	ft_printf(char const *str, ...)
 {
 	va_list	args;
 	int	count;
-	size_t	i;
+	int     i;
 
-	count = 0;
 	i = 0;
-	if (!str)
-		return (0);
+	count = 0;
 	va_start(args, str);
 	while (str[i])
 	{
@@ -47,7 +51,7 @@ int	ft_printf(const char *str, ...)
 		{
 			if (ft_strlen(str) > i + 1)
 				count += ft_parse(args, str[i + 1]);
-		i++;
+			i++;
 		}
 		else
 			count += write(1, &str[i], 1);
@@ -64,4 +68,4 @@ int main(void)
 
 	ft_printf("%p", p);
 	return (0);
-}*/
+} */

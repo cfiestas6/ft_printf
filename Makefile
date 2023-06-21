@@ -1,3 +1,4 @@
+LIB = ar rcs
 NAME = libftprintf.a
 
 CC = gcc
@@ -8,15 +9,14 @@ MY_SOURCES = ft_printf.c\
 			ft_putchar.c\
 			ft_putnbr.c\
 			ft_putstr.c\
-			ft_strlen.c
+			ft_strlen.c\
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(MY_OBJECTS) ft_printf.h
-	ar -rcs $(NAME) $(MY OBJECTS)
-
+$(NAME): $(MY_OBJECTS)
+	ar rcs $(NAME) $(MY_OBJECTS)
 clean:
 	@rm -f $(MY_OBJECTS)
 fclean:

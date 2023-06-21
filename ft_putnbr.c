@@ -24,7 +24,7 @@ int	ft_putnbr(int nbr, char *base, char c)
 	if (nbr < 0)
 	{
 		if (c != 'u')
-			count += ft_putchar('-');
+			count += write(1, "-", 1);
 		nbr *= -1;
 	}
 	j = nbr;
@@ -42,7 +42,7 @@ int ft_putnbr_base(unsigned long int nbr, char *base)
 	count = 0;
 	len = ft_strlen(base);
 	if (nbr >= len)
-		count += ft_putnbr_base(nbr/len, base);
+		count += ft_putnbr_base(nbr / len, base);
 	count += ft_putchar(base[nbr % len]);
 	return (count);
 }

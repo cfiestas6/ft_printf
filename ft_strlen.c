@@ -13,9 +13,9 @@
 #include <stdlib.h>
 #include "./ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	size_t	n;
+	int	n;
 
 	n = 0;
 	while (str[n])
