@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
+#include <stdio.h>
 
 static int	ft_parse(va_list args, char c)
 {
@@ -34,6 +35,7 @@ static int	ft_parse(va_list args, char c)
 		return (ft_putchar('%'));
 	else
 		return (ft_putchar(c));
+	return (0);
 }
 
 int	ft_printf(char const *str, ...)
@@ -63,9 +65,6 @@ int	ft_printf(char const *str, ...)
 /*
 int main(void)
 {
-	int i = 0;
-	int *p = &i;
-
-	ft_printf("%p", p);
+	ft_printf(" %c %c %c ", 'a', 0, '1');
 	return (0);
-} */
+}*/
